@@ -14,7 +14,7 @@ resource "aws_internet_gateway" "proj-igw" {
   vpc_id = aws_vpc.proj-vpc.id
   tags = {
     Name       = "proj-igw"
-    Enviroment = var.environment
+    Environment = var.environment
   }
 }
 
@@ -28,7 +28,7 @@ resource "aws_subnet" "proj-public-subnet-1" {
 
   tags = {
     Name       = "proj-public-subne-1"
-    Enviroment = var.environment
+    Environment = var.environment
   }
 }
 
@@ -40,7 +40,7 @@ resource "aws_subnet" "proj-public-subnet-2" {
 
   tags = {
     Name       = "proj-public-subnet-2"
-    Enviroment = var.environment
+    Environment = var.environment
   }
 }
 
@@ -60,13 +60,13 @@ resource "aws_subnet" "proj-private-sunbnet-1" {
 
 resource "aws_subnet" "proj-private-sunbnet-2" {
   vpc_id                  = aws_vpc.proj-vpc.id
-  cidr_block              = var.private_subnet_cidr_value
+  cidr_block              = var.private_subnet_cidr_value_1
   map_public_ip_on_launch = false
   availability_zone       = data.aws_availability_zones.available.names[1]
 
   tags = {
     Name       = "proj-private-subnet-2"
-    Enviroment = var.environment
+    Environment = var.environment
   }
 }
 
@@ -78,7 +78,7 @@ resource "aws_route_table" "proj-public-route-table-1" {
 
   tags = {
     Name       = "proj-public-route-table-1"
-    Enviroment = var.environment
+    Environment = var.environment
   }
 }
 
@@ -86,8 +86,8 @@ resource "aws_route_table" "proj-public-route-table-2" {
   vpc_id = aws_vpc.proj-vpc.id
 
   tags = {
-    Name       = "proj-public-route-table-1"
-    Enviroment = var.environment
+    Name       = "proj-public-route-table-2"
+    Environment = var.environment
   }
 }
 
@@ -99,7 +99,7 @@ resource "aws_route_table" "proj-private-route-table-1" {
 
   tags = {
     Name       = "proj-private-route-table-1"
-    Enviroment = var.environment
+    Environment = var.environment
   }
 }
 
@@ -108,7 +108,7 @@ resource "aws_route_table" "proj-private-route-table-2" {
 
   tags = {
     Name       = "proj-private-route-table-2"
-    Enviroment = var.environment
+    Environment = var.environment
   }
 }
 
