@@ -1,6 +1,6 @@
 resource "aws_instance" "jenkins-server" {
   ami                  = data.aws_ami.latest.id
-  instance_type        = "t3.micro"
+  instance_type        = "t2.micro"
   subnet_id            = aws_subnet.proj-public-subnet-1.id
   user_data            = file("./jenkins-server.sh")
   key_name             = "Mumbai"
