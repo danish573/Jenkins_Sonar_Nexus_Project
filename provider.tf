@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "latest"
+      version = "latest"  #Choose version instead of latest, latest not a valid specifier in terraform ot remove version
     }
   }
 }
