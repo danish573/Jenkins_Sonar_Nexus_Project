@@ -24,7 +24,7 @@ resource "aws_subnet" "proj-public-subnet-1" {
   vpc_id                  = aws_vpc.proj-vpc.id
   cidr_block              = var.public_subnet_cidr_value
   map_public_ip_on_launch = true
-  availability_zone       = data.aws_availability_zone.available.name[0]
+  availability_zone       = data.aws_availability_zones.available.names[0]
 
   tags = {
     Name       = "proj-public-subne-1"
@@ -36,7 +36,7 @@ resource "aws_subnet" "proj-public-subnet-2" {
   vpc_id                  = aws_vpc.proj-vpc.id
   cidr_block              = var.public_subnet_cidr_value_1
   map_public_ip_on_launch = true
-  availability_zone       = data.aws_availability_zone.available.name[1]
+  availability_zone       = data.aws_availability_zones.available.names[1]
 
   tags = {
     Name       = "proj-public-subnet-2"
@@ -50,7 +50,7 @@ resource "aws_subnet" "proj-private-sunbnet-1" {
   vpc_id                  = aws_vpc.proj-vpc.id
   cidr_block              = var.private_subnet_cidr_value
   map_public_ip_on_launch = false
-  availability_zone       = data.aws_availability_zone.available.name[0]
+  availability_zone       = data.aws_availability_zones.available.names[0]
 
   tags = {
     Name       = "proj-private-subnet-1"
@@ -62,7 +62,7 @@ resource "aws_subnet" "proj-private-sunbnet-2" {
   vpc_id                  = aws_vpc.proj-vpc.id
   cidr_block              = var.private_subnet_cidr_value
   map_public_ip_on_launch = false
-  availability_zone       = data.aws_availability_zone.available.name[1]
+  availability_zone       = data.aws_availability_zones.available.names[1]
 
   tags = {
     Name       = "proj-private-subnet-2"
@@ -219,7 +219,7 @@ resource "aws_security_group" "proj-security-group-nexus" {
   egress {
     from_port        = 0
     to_port          = 0
-    protocol         = ["-1"]
+    protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
